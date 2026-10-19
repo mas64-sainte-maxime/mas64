@@ -1,6 +1,6 @@
 # Mas 64 – Sito web casa vacanze (Sainte-Maxime)
 
-Sito statico bilingue (francese e inglese) per la casa vacanze **Mas 64**, nel residence Collines de Guerrevieille a Sainte-Maxime. Solo HTML, CSS e JavaScript, senza dipendenze né build.
+Sito statico in 4 lingue (francese, inglese, italiano, tedesco) per la casa vacanze **Mas 64**, nel residence Collines de Guerrevieille a Sainte-Maxime. Solo HTML, CSS e JavaScript, senza dipendenze né build.
 
 ## Struttura
 
@@ -15,16 +15,19 @@ assets/
   img/                fotografie (vedi sotto)
 ```
 
-| N. | Francese | Inglese |
-|---|---|---|
-| 1 | `fr/index.html` | `en/index.html` |
-| 2 | `fr/la-maison.html` | `en/the-house.html` |
-| 3 | `fr/jardin-et-domaine.html` | `en/garden-and-estate.html` |
-| 4 | `fr/la-region.html` | `en/the-area.html` |
-| 5 | `fr/tarifs-et-reservation.html` | `en/rates-and-booking.html` |
-| 6 | `fr/contact.html` | `en/contact.html` |
+| N.  | Francese                        | Inglese                     |
+| --- | ------------------------------- | --------------------------- |
+| 1   | `fr/index.html`                 | `en/index.html`             |
+| 2   | `fr/la-maison.html`             | `en/the-house.html`         |
+| 3   | `fr/jardin-et-domaine.html`     | `en/garden-and-estate.html` |
+| 4   | `fr/la-region.html`             | `en/the-area.html`          |
+| 5   | `fr/tarifs-et-reservation.html` | `en/rates-and-booking.html` |
+| 6   | `fr/contact.html`               | `en/contact.html`           |
 
-Il selettore FR/EN in alto a destra porta alla pagina equivalente nell'altra lingua (stessa riga della tabella).
+Il selettore FR/EN/IT/DE in alto a destra porta alla pagina equivalente nell'altra lingua (stessa riga della tabella).
+
+Italiano (`it/`): `index`, `la-casa`, `giardino-e-domaine`, `dintorni`, `tariffe-e-prenotazione`, `contatti`.
+Tedesco (`de/`): `index`, `das-haus`, `garten-und-anlage`, `umgebung`, `preise-und-buchung`, `kontakt`.
 
 ## Vedere il sito in locale
 
@@ -49,27 +52,30 @@ e vai su http://localhost:8000.
 
 Le 10 foto (© RM – Mas 64) sono già in `assets/img/`, ritagliate dai bordi neri e salvate in JPG:
 
-| File | Soggetto | Dove compare |
-|---|---|---|
-| `hero.jpg` | Vista su natura e golfo dalla terrazza | Home (immagine principale) e La région |
-| `jardin.jpg` | Giardino mediterraneo ombreggiato | Home e Jardin et domaine |
-| `cuisine.jpg` | Cucina e zona pranzo | La maison |
-| `salon.jpg`, `salon2.jpg` | Soggiorno | La maison |
-| `chambre.jpg`, `chambre2.jpg` | Camera principale e camera con letto estraibile | La maison |
-| `terrasse.jpg`, `terrasse2.jpg` | Terrazza con tavolo, facciata con sdraio | Jardin et domaine |
-| `golfe.jpg` | Vista dal Domaine con campi da tennis | Home e Jardin et domaine |
+| File                            | Soggetto                                        | Dove compare                           |
+| ------------------------------- | ----------------------------------------------- | -------------------------------------- |
+| `hero.jpg`                      | Vista su natura e golfo dalla terrazza          | Home (immagine principale) e La région |
+| `jardin.jpg`                    | Giardino mediterraneo ombreggiato               | Home e Jardin et domaine               |
+| `cuisine.jpg`                   | Cucina e zona pranzo                            | La maison                              |
+| `salon.jpg`, `salon2.jpg`       | Soggiorno                                       | La maison                              |
+| `chambre.jpg`, `chambre2.jpg`   | Camera principale e camera con letto estraibile | La maison                              |
+| `terrasse.jpg`, `terrasse2.jpg` | Terrazza con tavolo, facciata con sdraio        | Jardin et domaine                      |
+| `golfe.jpg`                     | Vista dal Domaine con campi da tennis           | Home e Jardin et domaine               |
 
 Per cambiare una foto sostituisci il file mantenendo lo stesso nome. Se un file manca, la pagina mostra un riquadro segnaposto. Le foto originali misurano circa 600-1000 px sul lato lungo: per un risultato più nitido sugli schermi grandi, sostituiscile con versioni a 1600-1920 px (meno di 500 KB ciascuna).
 
 ## Modulo di richiesta
 
-Il modulo si trova nelle pagine *Tarifs et réservation* e *Rates & Booking*.
+Il modulo si trova nelle pagine _Tarifs et réservation_ e _Rates & Booking_.
 
 - **Senza configurazione** apre l'app email del visitatore con il messaggio già compilato. Il sito avvisa che la richiesta parte solo dopo l'invio dall'app email.
 - **Con un servizio di invio** (es. Formspree): crea un modulo sul servizio, copia l'indirizzo che ti dà e incollalo in `assets/config.js`:
 
 ```js
-window.MAS64 = { email: 'mas64collines@gmail.com', formEndpoint: 'https://formspree.io/f/xxxxxxxx' };
+window.MAS64 = {
+  email: "mas64collines@gmail.com",
+  formEndpoint: "https://formspree.io/f/xxxxxxxx",
+};
 ```
 
 Il modulo invia i dati in JSON con metodo POST e mostra un messaggio di conferma solo se il servizio risponde con successo.
@@ -88,10 +94,9 @@ Il modulo invia i dati in JSON con metodo POST e mostra un messaggio di conferma
 - [ ] Condizioni di **cancellazione** (ora rimanda al contratto di locazione)
 - [ ] Tassa di soggiorno 2027 (ora 2,16 € per adulto a notte, tariffa 2026)
 - [ ] Prezzi di pulizia finale e biancheria
-- [ ] Numeri di telefono da pubblicare (ora solo l'email)
 - [ ] Pagina **Mentions légales** (servono nome e indirizzo dell'editore)
 - [ ] Foto: manca una foto della piscina; valutare versioni a risoluzione maggiore
-- [ ] Contenuti della pagina *La région* (ora minimi) ed eventuale sezione eco-responsabile
+- [ ] Contenuti della pagina _La région_ (ora minimi) ed eventuale sezione eco-responsabile
 - [ ] Caratteri Google Fonts: per un uso rigoroso del GDPR, scaricare Spectral e Lato e servirli dalla cartella `assets/`
 
 ## Note

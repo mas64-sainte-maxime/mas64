@@ -5,14 +5,15 @@
     <meta charset="utf-8">
     <title>Mas 64</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <script>location.replace((navigator.language || "fr").slice(0, 2) === "fr" ? "fr/index.html" : "en/index.html")</script>
+    <script>(function () { var l = (navigator.language || "fr").slice(0, 2); location.replace((["fr", "it", "de"].indexOf(l) > -1 ? l : "en") + "/index.html") })()</script>
     <noscript>
         <meta http-equiv="refresh" content="0;url=fr/index.html">
     </noscript>
 </head>
 
 <body>
-    <p><a href="fr/index.html">Français</a> · <a href="en/index.html">English</a></p>
+    <p><a href="fr/index.html">Français</a> · <a href="en/index.html">English</a> · <a href="it/index.html">Italiano</a>
+        · <a href="de/index.html">Deutsch</a></p>
 </body>
 
 </html>
